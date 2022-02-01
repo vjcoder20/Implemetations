@@ -1,0 +1,49 @@
+ public static class CustomStack {
+    int[] arr;
+    int tos;
+
+    public CustomStack(int cap) {
+      arr = new int[cap];
+      tos = -1;
+    }
+
+    int size() {
+      return (tos+1);
+    }
+
+    void display() {
+     for(int i=tos;i>=0;i--){
+         System.out.print(arr[i]+" ");
+     }
+     System.out.println();
+    }
+
+    void push(int val) {
+        if(tos<arr.length-1){
+            arr[++tos] = val;
+        }
+        else{
+           System.out.println("Stack overflow");
+        }
+    }
+
+    int pop() {
+      if(tos==-1){
+          System.out.println("Stack underflow");
+          return -1;
+      }
+      else{
+          return arr[tos--];
+      }
+    }
+
+    int top() {
+      if(tos==-1){
+          System.out.println("Stack underflow");
+          return -1;
+      }
+      else{
+          return arr[tos];
+      }
+    }
+  }
