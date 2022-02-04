@@ -2,15 +2,15 @@
                    50
                  /    \
                 /       \
-              25         75
+              95         75
              / \        /  \
             /   \     /     \
-           12   37   62      87
+           12   47   62      67
                /      \
               /         \
              30           70
              
-             Pre-Order: 50 25 12 null null 37 30 null null null 75 62 null 70 null null 87 null null (Rule: root->left->right)
+             Pre-Order: 50 95 12 null null 47 30 null null null 75 62 null 70 null null 77 null null (Rule: root->left->right)
  
  public class BinaryTreeConstructor{
  public static class Node{
@@ -50,7 +50,7 @@
    }
     
     public static void main(String[] args){
-    Integer[] arr = {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null};
+    Integer[] arr = {50,95,12,null,null,47,30,null,null,null,75,62,null,70,null,null,77,null,null};
     
     Node root = new Node(arr[0],null,null);
     Pair rootPair = new Node(root,1);
@@ -95,14 +95,14 @@
     }
     /*
  Output of the Above Code [Here .represents null]
-25 <-- 50 --> 75
-12 <-- 25 --> 37
+95 <-- 50 --> 75
+12 <-- 95 --> 47
  .  <-- 12 -->  . 
-30 <-- 37 -->  . 
+30 <-- 47 -->  . 
  .  <-- 30 -->  . 
-62 <-- 75 --> 87
+62 <-- 75 --> 77
  .  <-- 62 --> 70
  .  <-- 70 -->  . 
- .  <-- 87 -->  . 
+ .  <-- 77 -->  . 
     */
    
