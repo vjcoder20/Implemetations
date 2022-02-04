@@ -2,13 +2,13 @@ BINARY SEARCH TREE VIEW           THUMB RULE: Root ke left mein sab ussey smalle
                   50
                /      \
              /          \
-           25            75
+           30            80
          /   \          /   \
        /      \        /      \
-     12        37     62        87
-              /  \             /   \
-             /    \           /      \
-           30     40         80       93
+     12        37     62       87
+    /           \       \        \
+   /              \      \         \
+  25               40     75        93
            
 
  public class BinaryTreeSearchConstructor{
@@ -63,6 +63,18 @@ BINARY SEARCH TREE VIEW           THUMB RULE: Root ke left mein sab ussey smalle
     }
     
     }
-           
+     /*
+30 <-- 50 --> 80
+12 <-- 30 --> 37
+. <-- 12 --> 25
+. <-- 25 --> .
+. <-- 37 --> 40
+. <-- 40 --> .
+62 <-- 80 --> 87
+. <-- 62 --> 75
+. <-- 75 --> .
+. <-- 87 --> 93
+. <-- 93 --> .
+     */
     
         
