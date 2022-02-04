@@ -21,9 +21,12 @@ class MyLinkedList {
         this.size = 0;
     }
     
+    public int getSize(){
+    return size;
+    }
+    
     public void display(){
-        if(size==0) return;
-        
+       
         Node curr = head;
         while(curr!=null){
             System.out.print(curr.data+" ");
