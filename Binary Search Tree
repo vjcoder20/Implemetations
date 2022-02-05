@@ -24,6 +24,64 @@ BINARY SEARCH TREE VIEW           THUMB RULE: Root ke left mein sab ussey smalle
         }
     }
     
+    public static Node add(Node node,int data){
+    //Base case
+    if(node==null){
+    return new Node(data,null,null);
+    }
+      
+      if(data>node.data){
+       node.right = add(node.right,data);
+      }
+      else if(data<node.data){
+      node.left = add(node.left,data);
+      }
+      else{
+      //nothing to do agar pehle se data hai toh
+      }
+      
+      return node;
+    }
+    
+    public static int max(Node node){
+    if(node.right!=null){
+      return max(node.right);
+    }
+    else{
+    return node.data;
+    }
+    }
+    
+    public static Node remove(Node node,int data){
+    if(node==null){
+    return null;
+    }
+       if(data>node.data){
+       node.right = remove(node.right,data);
+      }
+      else if(data<node.data){
+      node.left = remove(node.left,data);
+      }
+      else{
+          if(node.left!=null && node.right!=null){
+          int lmax = max(node.left);
+          node.data = lmax;
+          node.left = remove(node.left,lmax);
+          return node;
+          }
+          else if(node.left!=null){
+          return node.left;
+          }
+          else if(node.right!=null){
+          return node.right;
+          }
+          else{
+          return null;
+          }
+      }
+      return node;
+    }
+    
     public static Node construct(int[] arr,int lo,int hi){
       if(lo>hi){
       return null;
