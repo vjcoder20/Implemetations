@@ -1,1 +1,120 @@
+//Add-->O(logn)
+//Remove-->O(logn)
+//peek-->O(1)
 
+Data Structure used for priority queue is Heap which have 2 Properties:
+a) Heap Order Property(HOP)---> Parents apne child se higher priority rakhega agar humne chhoti value ko priortise maana hai toh parent apne child se chhoti value hold karega Ex:
+            10
+          /    \
+        /         \
+      20            30
+    /   \           /  \
+  /       \       /      \
+40         50   60        70
+
+Heap order property is needed to achieve peek in O(1)
+
+b) Complete Binary Tree(CBT) 
+Example:
+                                10                  ___
+                              /    \                   |
+                            /         \                |
+                          20            30             |       H-1 levels par ek bhi leaf node nahi honi chahiye hai
+                        /   \           /  \           |
+                       /       \       /      \        |
+                      40         50   60        70  ___|  
+                    /   \
+                  /       \
+                80        90                         Aur aakhiri level left se right bharna chahiye like agar mein ab 60 ke neeche 100 laga deta toh ye CBT property nahi hold hoti                         
+                
+    
+    CBT property is needed to achieve add and remove in O(logn) time complexity.
+    
+    Well, honestly Priority queue uses ArrayList internally but we will visualise as ArrayList elements in some sort of CBT so basically the above tree can be written as in Array List
+    ArrayList --->10 20 30 40 50 60 70 80 90
+    Indexes------>0   1  2  3  4  5  6  7  8 
+    
+    So, if we observe then Right child Index = 2*parentIndex + 1
+                           Left child Index  = 2*parentIndex + 2
+                           ParentIndex = (childIndex-1)/2
+    *************  Note: All these above formulas work only if it is Complete Binary tree(CBT). ************************
+    
+    
+ --------------------------------------------------------------------Implementation----------------------------------------------------------------------------------------
+ 
+ public static class PriorityQueue {
+    ArrayList<Integer> data;
+
+    public PriorityQueue() {
+      data = new ArrayList<>();
+    }
+    
+    public void swap(int i,int j){
+    int ith = data.get(i);
+    int jth = data.get(j);
+    data.set(i,jth);
+    data.set(j,ith);
+    }
+
+    public void add(int val) {
+      data.add(val);
+      upheapify(data.size()-1);
+    }
+    
+    public void upheapify(int i){
+    if(i==0)
+    return;
+    int pi = (i-1)/2;
+    if(data.get(i)<data.get(pi)){
+    swap(i,pi);
+    upheapify(pi);
+    }
+    }
+
+    public int remove() {
+      if(size()==0){
+     System.out.println("Underflow");
+     return -1;
+     }
+     else{
+     swap(0,data.size()-1);
+     int val = data.remove(data.size()-1);
+     downheapify(0);
+     return val;
+     }
+    }
+    
+    public void downheapify(int pi){
+      int mini = pi;
+      
+      int li = 2*pi+1;
+      if(li<data.size() && data.get(li)<data.get(mini)){
+      mini = li;
+      }
+      
+      int ri = 2*pi+2;
+      if(ri<data.size() && data.get(ri)<data.get(mini)){
+      mini = ri;
+      }
+      
+      if(mini!=pi){
+      swap(pi,mini);
+      downheapify(mini);
+      }
+    }
+
+    public int peek() {
+     if(size()==0){
+     System.out.println("Underflow");
+     return -1;
+     }
+     else{
+     return data.get(0);
+     }
+    }
+
+    public int size() {
+      return data.size();
+    }
+  }
+    
