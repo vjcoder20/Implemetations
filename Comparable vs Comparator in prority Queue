@@ -97,14 +97,14 @@ Rno = 10, Ht = 180, Wt = 81
 
 //Alag se 2 class hi banani padegi iske liye agar class ke kisi aur data member ke basis par output chahiye
  
- PriorityQueue<Student> pq = new PriorityQueue<>(new StudentHtComparator()); //ye main function mein likhege
+ PriorityQueue<Student> pq = new PriorityQueue<>(new StudentHtComparator()); //ye main function mein likhege output dega height ke basis par
  static class StudentHtComparator implements Comparator<Student>{  //Ye main class mein likhege as a inner class but not into class Student remember it is itself a class
       public int compare(Student s1,Student s2){
           return s1.ht-s2.ht;
       }
    }
    
-    PriorityQueue<Student> pq = new PriorityQueue<>(new StudentWtComparator());  //ye main function mein likhege
+    PriorityQueue<Student> pq = new PriorityQueue<>(new StudentWtComparator());  //ye main function mein likhege output dega weight ke basis par
    static class StudentWtComparator implements Comparator<Student>{
       public int compare(Student s1,Student s2){
           return s1.wt-s2.wt;
