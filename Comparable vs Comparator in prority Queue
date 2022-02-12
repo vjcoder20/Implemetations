@@ -1,1 +1,87 @@
+---------------------------Min Priority Queue with primitive data types---------------------------------------------------------
+ int[]arr = {10,2,17,3,18,9,22};
+    
+    PriorityQueue<Integer> pq = new PriorityQueue<>();
+    
+    for(int val:arr){
+        pq.add(val);
+    }
+    
+    while(pq.size()>0){
+        System.out.print(pq.peek()+" ");
+        pq.remove();
+    }
+    
+    //Output--> 2 3 9 10 17 18 22 
+    
+    ---------------------------Max Priority Queue with primitive data types---------------------------------------------------------
+     int[]arr = {10,2,17,3,18,9,22};
+    
+    PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+    PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b.compareTo(a));      //More preferable because it handles big values too.
+    
+    for(int val:arr){
+        pq.add(val);
+    }
+    
+    while(pq.size()>0){
+        System.out.print(pq.peek()+" ");
+        pq.remove();
+    }
+//Output---> 22 18 17 10 9 3 2 
 
+
+//---------------------Now what if I want to sort some class on the basis of its data member----------------------------------------------
+
+here comes the role of Comparable
+
+public class Main{
+  static class Student implements Comparable<Student>{
+  int rno;
+  int ht;
+  int wt;
+  
+  Student(int rno,int ht,int wt){
+  this.rno = rno;
+  this.ht = ht;
+  this.wt = wt;
+  }
+  
+  public int compareTo(Student o){
+  return this.rno-o.rno;  //For increasing order
+  return o.rno-this.rno //For decreasing order
+  }
+  
+    public String toString(){       //We need this function so that when we print peek instead of printing address it prints some meaningful that we want.
+      return "Rno = "+this.rno + ", Ht = "+this.ht+", Wt = "+this.wt;
+  }
+  
+  }
+   public static void main(String[] args) throws Exception{
+     PriorityQueue<Student> pq = new PriorityQueue<>();
+      pq.add(new Student(10,180,81));
+      pq.add(new Student(2,185,82));
+      pq.add(new Student(4,189,85));
+    
+     while(pq.size()>0){
+        System.out.println(pq.peek());
+        pq.remove();
+    }
+    
+   }
+}
+
+/////---------------Output for the above Code-------------------------------------/////
+Rno = 2, Ht = 185, Wt = 82
+Rno = 4, Ht = 189, Wt = 85
+Rno = 10, Ht = 180, Wt = 81
+
+
+
+
+
+
+*************************************************** Most Important thing ****************************************************************
+-->If you don't want to implement Comparable in classes and don't want to write compareTo function what you can do is direct method just resolve while initiating priority queue
+
+    PriorityQueue<Student> pq = new PriorityQueue<>((student1, student2) -> Integer.compare(student1.rno, student2.rno));
