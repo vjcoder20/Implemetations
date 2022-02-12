@@ -1,3 +1,5 @@
+**************************************************  Comparable  **************************************************************************************************
+
 ---------------------------Min Priority Queue with primitive data types---------------------------------------------------------
  int[]arr = {10,2,17,3,18,9,22};
     
@@ -85,3 +87,26 @@ Rno = 10, Ht = 180, Wt = 81
 -->If you don't want to implement Comparable in classes and don't want to write compareTo function what you can do is direct method just resolve while initiating priority queue
 
     PriorityQueue<Student> pq = new PriorityQueue<>((student1, student2) -> Integer.compare(student1.rno, student2.rno));
+    
+    
+    
+    
+    
+    
+**************************************************  Comparator  **************************************************************************************************
+
+//Alag se 2 class hi banani padegi iske liye agar class ke kisi aur data member ke basis par output chahiye
+ 
+ PriorityQueue<Student> pq = new PriorityQueue<>(new StudentHtComparator()); //ye main function mein likhege
+ static class StudentHtComparator implements Comparator<Student>{  //Ye main class mein likhege as a inner class but not into class Student remember it is itself a class
+      public int compare(Student s1,Student s2){
+          return s1.ht-s2.ht;
+      }
+   }
+   
+    PriorityQueue<Student> pq = new PriorityQueue<>(new StudentWtComparator());  //ye main function mein likhege
+   static class StudentWtComparator implements Comparator<Student>{
+      public int compare(Student s1,Student s2){
+          return s1.wt-s2.wt;
+      }
+   }
