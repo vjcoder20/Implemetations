@@ -41,3 +41,40 @@ class HelloWorld {
     }
 }
  O/p:51
+ 
+ 
+ 
+ //Van Eck
+---> Looks like: 0 0 1 0 2 0
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+     int[] arr = new int[100];
+     arr[0] = 0;
+     for(int i=1;i<100;i++){
+         int j = arr[i-1];
+         int count = 0;
+         boolean isPresent = false;
+         for(int k=i-2;k>=0;k--){
+             if(arr[k]==j){
+                 count++;
+                isPresent = true;
+                 break;
+             }
+             else{
+                 count++;
+             }
+         }
+         if(isPresent==true){
+             arr[i] = count;
+         }
+         else{
+             arr[i] = 0;
+         }
+     }
+     
+     System.out.println(Arrays.toString(arr));
+       
+    }
+}
