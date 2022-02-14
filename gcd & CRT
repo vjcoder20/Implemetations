@@ -1,0 +1,43 @@
+//GCD
+class HelloWorld {
+    public static int gcd(int a,int b){
+        if(b==0){
+            return a;
+        }
+        return gcd(b,a%b);
+    }
+    public static void main(String[] args) {
+        int a = 15;
+        int b = 30;
+        System.out.println(gcd(a,b));
+    }
+}
+
+o/p:15
+
+
+//CRT
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {5,7,8};
+       int[] rem = {1,2,3};
+       
+       int x = 1;
+       
+       int i;
+       while(true){
+         for(i=0;i<arr.length;i++)  {
+             if(x%arr[i]!=rem[i]){
+                 break;
+             }
+         }
+             if(i==arr.length){
+                System.out.println(x);
+                 return;
+             }
+             x++;
+       }
+       
+    }
+}
+ O/p:51
