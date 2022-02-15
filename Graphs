@@ -1,5 +1,19 @@
 ******************* Graph visualisation*******************************
 
+        0       40      3      2      4
+        *---------------*-------------*
+        |               |             |  \
+     10 |            10 |             |    \
+        |               |           3 |      \ 8
+        |      10       |             |        \
+        *---------------*             *---------*
+        1               2             5    3     6
+
+Context:
+* --> Denotes vertices
+----- && | --> Denotes Edges
+0,1,2,3,4,5,6 --> Vertices Number
+10,10,10,40,2,3,3,8 --> Edge Weight
 
 public class graphs {
     public static class Edge{
