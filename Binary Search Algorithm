@@ -1,0 +1,25 @@
+Applies on Sorted Inputs
+int[] arr = {2,18,64,67,89,93}
+
+//Find index of 89 in O(log n)
+int low = 0;
+int high = arr.length-1;
+int x = 89;
+
+while(low<high){
+int mid = low+(high-low)/2;
+
+if(arr[mid]>x){
+  high = mid-1;
+}
+
+else if(arr[mid]<x){
+low = mid+1;
+}
+
+else{
+System.out.println("Find at "+mid);
+break;
+}
+}
+
