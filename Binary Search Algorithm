@@ -7,7 +7,7 @@ int high = arr.length-1;
 int x = 89;
 
 while(low<high){
-int mid = low+(high-low)/2;
+int mid = low+(high-low)/2;    //here to avoid integer overflow we find mid in smart way rather than (low+high)/2😊😊😊
 
 if(arr[mid]>x){
   high = mid-1;
