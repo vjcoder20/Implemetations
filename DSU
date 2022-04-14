@@ -124,4 +124,19 @@ public class DSU {
 
 
 Baaki graphs waali copy mein notes likhe hai toh samaj aa jayege kaise union by rank lagana hai
+
 //So the answer would be 3 i.e. 3 groups
+---------------            
+|     1 3     |
+|     6 7     |
+---------------
+
+---------------
+|     2 5     |
+|      4      |
+---------------
+
+---------------
+|     8 9     |
+|      10     |
+---------------
