@@ -1,3 +1,62 @@
+------------------------------------------> Ye hai Naive DSU without any Optimisations ----------------------------------------------------------------------------->
+public class DSU {
+   int[] parent;
+     public void main(String[] args){
+        int[][]relations = {{1,3},{2,5},{6,7},{2,4},{1,6},{8,9},{8,10}};
+        int n = 10;
+        
+        parent = new int[n+1];
+        
+        //Initially parent Array
+        
+        for(int i=0;i<parent.length;i++){
+            parent[i] = i;    
+        /*toh ye bata raha hai ki sab apne set mein abhi parent bane baithe hai khud ke jaise 1 ka parent 1 and 
+        respectively sab apne set mein parent bane baithe hai */
+        
+        }
+        
+        for(int i=0;i<relations.length;i++){
+            int u = relations[i][0];
+            int v = relations[i][1];
+            
+            union(u,v);
+        }
+        
+        int groups = 0;
+        
+        for(int i=1;i<parent.length;i++){
+            if(parent[i]==i)
+            groups++;
+        }
+        
+        System.out.println(groups);
+        
+     }
+     
+     public void union(int u,int v){
+         int slu = find(u);  //Ye find function madad karta hai set leader nikalne mein
+         int slv = find(v);
+         
+         if(slu!=slv){
+             parent[slu] = slv;
+         }
+     }
+     
+     public int find(int x){
+         if(parent[x]==x){
+             return x;
+         }
+         int sl = find(parent[x]);
+         return sl;
+     }
+}
+
+
+
+
+
+<-------------------------> Ye toh Optimised DSU hai Rank and Path compression ko Lagakar <--------------------------------------------------------------------------->
 public class DSU {
     public static void main(String[]args) {
         int[][]relations = {{1,3},{2,5},{6,7},{2,4},{1,6},{8,9},{8,10}};
