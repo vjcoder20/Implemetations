@@ -96,7 +96,7 @@ public class DSU {
         }
 
         int sl = find(parent[x],parent);
-        parent[x] = sl; //path compression
+        parent[x] = sl;   //path compression i.e. set leader ko hi parent bana lo jissey find O(1) mein chalne lag jaaye
         return sl;
     }
 
@@ -104,7 +104,7 @@ public class DSU {
         int slu = find(u,parent);
         int slv = find(v,parent);
 
-        if(slu != slv) {
+        if(slu != slv) {    //Idhar Union by Rank laga hai i.e. union bhi O(1) mein ho jaayega
             int rslu = rank[slu];
             int rslv = rank[slv];
 
@@ -123,5 +123,5 @@ public class DSU {
 }
 
 
-
+Baaki graphs waali copy mein notes likhe hai toh samaj aa jayege kaise union by rank samaj aa jayega
 //So the answer would be 3 i.e. 3 groups
